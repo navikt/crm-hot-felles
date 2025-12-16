@@ -16,7 +16,5 @@ Template repository for CRM packages. Necessary steps after using template:
 
 # crm-hot-felles
 
-[![Build](https://github.com/navikt/XXXXXXXXXXXXX/workflows/%5BPUSH%5D%20Create%20Package/badge.svg)](https://github.com/navikt/XXXXXXXXXXXXX/actions?query=workflow%3Acreate)
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/navikt/XXXXXXXXXXXXX/blob/master/LICENSE)
-
-Kort beskrivelse av hva prosjektet dreier seg om.
+Denne pakken inneholder felles Salesforce metadata som kan brukes i alle Team HoT CRM sine løsninger. 
+Team HOT CRM forvalter Servicetjenesten, Tolkebestilling, Lese- og sekretærhjelp og Kursoversikten.
