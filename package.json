@@ -1,4 +1,5 @@
 {
+    "name": "crm-hot-felles",
     "private": true,
     "scripts": {
         "prepare": "husky install",
