@@ -1,12 +1,16 @@
 {
     "packageDirectories": [
         {
+            "versionNumber": "0.1.0.NEXT",
             "path": "force-app",
-            "default": true
+            "default": true,
+            "package": "crm-hot-felles"
         }
     ],
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "57.0",
-    "packageAliases": {}
+    "sourceApiVersion": "65.0",
+    "packageAliases": {
+        "crm-hot-felles": "0HoQC00000005qv0AA"
+    }
 }
