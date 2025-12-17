@@ -7,4 +7,11 @@
         <shortDescription>Hei</shortDescription>
         <value>erer</value>
     </labels>
+    <labels>
+        <fullName>Hade</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hade</shortDescription>
+        <value>Hade</value>
+    </labels>
 </CustomLabels>
