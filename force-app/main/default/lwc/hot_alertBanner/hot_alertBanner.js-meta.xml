@@ -3,7 +3,7 @@
     <apiVersion>50.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>HOT - Alert banner</masterLabel>
-    <description>Displayd an alert banner with a given message</description>
+    <description>Display an alert banner with a given message</description>
     <targets>
         <target>lightning__RecordPage</target>
         <target>lightning__FlowScreen</target>
