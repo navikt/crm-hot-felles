@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>HOT - Dynamic alert banner</masterLabel>
+    <description>Display an dynamic alert banner with a given message</description>
+
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+
+            <property
+                name="object"
+                type="String"
+                label="Object API Name"
+                description="Object API Name som du ønsker hente verdi fra"
+                required="true" />
+
+            <property
+                name="field"
+                type="String"
+                label="Field API Name"
+                description="Feltnavn. Kun 1 verdi"
+                required="true" />
+
+            <property
+                name="pretext"
+                type="String"
+                label="Pretext"
+                description="Text som vises før feltverdien"
+                required="false" />
+
+            <property
+                name="type"
+                type="String"
+                label="Banner Type"
+                description="Info, Warning, eller Error"
+                default="Info" />
+
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>

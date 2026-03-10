@@ -1,0 +1,19 @@
+<template>
+    <template lwc:if={fieldValue}>
+        <div class={bannerClass} role="alert">
+            <span class="slds-assistive-text">{type}</span>
+
+            <div class="slds-p-horizontal_small">
+                <!-- Icon + Pretext -->
+                <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-center">
+                    <lightning-icon icon-name={iconName} size="small" variant="inverse"></lightning-icon>
+
+                    <div class="slds-p-left_medium slds-text-heading_small">{pretext}</div>
+                </div>
+
+                <!-- Field value -->
+                <div class="slds-text-align_center slds-p-top_x-small">{fieldValue}</div>
+            </div>
+        </div>
+    </template>
+</template>
