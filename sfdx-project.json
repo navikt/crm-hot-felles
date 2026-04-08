@@ -13,7 +13,9 @@
             ]
         }
     ],
-
+    "packageAliases": {
+        "crm-community-base": "0Ho2o0000008OSzCAM"
+    },
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "65.0",
