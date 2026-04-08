@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label">
+            <template lwc:if={required}>
+                <abbr class="slds-required" title="required">*</abbr>
+            </template>
+            {label}
+        </label>
+        <div class={counterClass}>{remainingCharacters} tegn igjen</div>
+        <div class="slds-form-element__control">
+            <c-textarea
+                name="textarea"
+                maxlength={maxCharacters}
+                ongetvalueontextareachange={handleUserInputTextarea}
+                error-text={errorText}
+                value={inputText}
+                label-size="1rem"
+            >
+            </c-textarea>
+        </div>
+        <template lwc:if={errorText}>
+            <div class="slds-form-element__help slds-text-color_error">{errorText}</div>
+        </template>
+    </div>
+</template>
