@@ -1,0 +1,13 @@
+.character-counter {
+    font-size: 0.75rem;
+    color: #5f5c5c;
+}
+
+.warning {
+    color: #ba0517;
+    font-weight: 600;
+}
+
+.error-message {
+    font-size: 0.75rem;
+}
