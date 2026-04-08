@@ -3,7 +3,7 @@
     <apiVersion>64.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>HOT Text Area Flow With Counter</masterLabel>
-    <description>Count characters in the text area</description>
+    <description>Text area that shows a character counter during typing</description>
 
     <targets>
         <target>lightning__FlowScreen</target>
