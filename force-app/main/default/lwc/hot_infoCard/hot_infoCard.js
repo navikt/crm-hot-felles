@@ -2,10 +2,10 @@ import { LightningElement, api } from 'lwc';
 import icons from '@salesforce/resourceUrl/aksel_ikoner';
 
 export default class InfoCard extends LightningElement {
-    informationIcon = icons + '/aksel-icons/Status/InformationSquare.svg';
-    warningIcon = icons + '/aksel-icons/Status/ExclamationMarkTriangle.svg';
-    neutralIcon = icons + '/aksel-icons/Statistics_and_math/BulletList.svg';
-    dangerIcon = icons + '/aksel-icons/Files_and_application/ClockDashed.svg';
+    informationIcon = icons + '/Status/InformationSquare.svg';
+    warningIcon = icons + '/Status/ExclamationMarkTriangle.svg';
+    neutralIcon = icons + '/Statistics_and_math/BulletList.svg';
+    dangerIcon = icons + '/Files_and_application/ClockDashed.svg';
 
     @api type = 'neutral';
     @api title = '';
