@@ -1,24 +1,27 @@
 <template>
-    <div class={cardClass}>
+    <div class={cardClass} role="region" aria-labelledby="infoCardTitle">
         <div class="infoCard__header">
             <div class="infoCard__header-inner">
                 <div lwc:if={showIcon}>
                     <img src={icon} alt="" aria-hidden="true" class="infoCard__icon" />
                 </div>
 
-                <span class="infoCard__title">
-                    <template lwc:if={title}> {title} </template>
-                </span>
+                <h3 id="infoCardTitle" class="infoCard__title">
+                    <template lwc:if={title}>{title}</template>
+                </h3>
             </div>
         </div>
 
         <div class="infoCard__content">
             <template lwc:if={content}>
-                <span>{content}</span>
+                <p>{content}</p>
             </template>
 
             <template lwc:if={url}>
-                <a href={url} target="_blank" class="infoCard__link"> {url} </a>
+                <a href={url} target="_blank" rel="noopener noreferrer" class="infoCard__link">
+                    {url}
+                    <span class="sr-only">(åpnes i ny fane)</span>
+                </a>
             </template>
         </div>
     </div>
