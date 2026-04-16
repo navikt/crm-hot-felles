@@ -12,6 +12,7 @@ export default class InfoCard extends LightningElement {
     @api content = '';
     @api showIcon = false;
     @api url;
+    @api urlText;
 
     get cardClass() {
         const validTypes = ['neutral', 'info', 'warning', 'danger'];
