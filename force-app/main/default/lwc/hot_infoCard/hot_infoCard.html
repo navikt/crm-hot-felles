@@ -1,0 +1,28 @@
+<template>
+    <div class={cardClass}>
+        <div class="infoCard__header">
+            <div class="infoCard__header-inner">
+                <div>
+                    <img src={icon} alt="" aria-hidden="true" class="infoCard__icon" />
+                </div>
+
+                <span class="infoCard__title">
+                    <template if:true={title}> {title} </template>
+                    <template if:false={title}>
+                        <slot name="header"></slot>
+                    </template>
+                </span>
+            </div>
+        </div>
+
+        <div class="infoCard__content">
+            <template if:true={content}>
+                <span>{content}</span>
+            </template>
+
+            <template if:true={url}>
+                <a href={url} target="_blank" class="infoCard__link"> {url} </a>
+            </template>
+        </div>
+    </div>
+</template>
