@@ -19,6 +19,9 @@ export default class InfoCard extends LightningElement {
         const type = validTypes.includes(this.type) ? this.type : 'neutral';
         return `infoCard infoCard--${type}`;
     }
+    get headerClass() {
+        return `infoCard__header ${this.isEitherContentOrUrl ? 'infoCard__header--with-border' : ''}`;
+    }
 
     get shouldShowIcon() {
         return this.showIcon === true || this.showIcon === 'true';
@@ -37,5 +40,8 @@ export default class InfoCard extends LightningElement {
             default:
                 return this.neutralIcon;
         }
+    }
+    get isEitherContentOrUrl() {
+        return this.content || this.url;
     }
 }

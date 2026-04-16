@@ -1,6 +1,6 @@
 <template>
     <div class={cardClass} role="region" aria-labelledby="infoCardTitle">
-        <div class="infoCard__header">
+        <div lwc:if={title} class={headerClass}>
             <div class="infoCard__header-inner">
                 <div lwc:if={showIcon}>
                     <img src={icon} alt="" aria-hidden="true" class="infoCard__icon" />
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="infoCard__content">
+        <div lwc:if={isEitherContentOrUrl} class="infoCard__content">
             <template lwc:if={content}>
                 <p>{content}</p>
             </template>
