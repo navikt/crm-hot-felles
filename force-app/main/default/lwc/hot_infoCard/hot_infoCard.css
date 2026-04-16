@@ -1,0 +1,116 @@
+.infoCard {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+.infoCard__header {
+    padding: 0.4rem 1.25rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    border-bottom: 1px solid;
+}
+.infoCard__title {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+}
+.infoCard__header-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.infoCard__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: inherit;
+}
+.infoCard__content {
+    padding: 0.4rem 1.25rem;
+    background: #ffffff;
+    color: #2e2e2e;
+    line-height: 1.5;
+    font-size: 1.125rem;
+}
+
+/* ===================== */
+/* TYPER */
+/* ===================== */
+
+/* Neutral */
+.infoCard--neutral {
+    border-color: #646c7a;
+}
+
+.infoCard--neutral .infoCard__header {
+    background-color: #e8ebec;
+    color: #1d222c;
+    border-bottom-color: #bdc2c8;
+}
+
+/* Info */
+.infoCard--info {
+    border-color: #3d7092;
+}
+
+.infoCard--info .infoCard__header {
+    background-color: #deedf6;
+    color: #00243b;
+    border-bottom-color: #a9c6db;
+}
+
+/* Warning */
+.infoCard--warning {
+    border-color: #c24701;
+}
+
+.infoCard--warning .infoCard__header {
+    background-color: #ffe8c1;
+    color: #3f1701;
+    border-bottom-color: #feba55;
+}
+
+/* Danger */
+.infoCard--danger {
+    border-color: #dd243e;
+}
+
+.infoCard--danger .infoCard__header {
+    background-color: #ffe4ee;
+    color: #4d0101;
+    border-bottom-color: #ffafc8;
+}
+
+/* ===================== */
+/* LENKE */
+/* ===================== */
+
+.infoCard__link {
+    display: block;
+    margin-top: 0.25rem;
+    color: #0051ac;
+    text-decoration: underline;
+    font-weight: 400;
+    text-decoration-thickness: 1px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.infoCard__link:hover {
+    text-decoration-thickness: 1.5px;
+}
+
+.infoCard__link:visited {
+    color: #0051ac;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
