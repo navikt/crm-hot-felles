@@ -7,6 +7,7 @@
 
     <targets>
         <target>lightning__RecordPage</target>
+        <target>lightning__MobileRecordPage</target>
     </targets>
 
     <targetConfigs>
