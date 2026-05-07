@@ -1,0 +1,95 @@
+<template>
+    <div class={switchClass}>
+        <input
+            id={computedInputId}
+            class="aksel-switch__input"
+            type="checkbox"
+            name={name}
+            value={value}
+            checked={checked}
+            disabled={isInputDisabled}
+            required={required}
+            aria-label={ariaLabel}
+            aria-describedby={computedAriaDescribedby}
+            aria-readonly={ariaReadonly}
+            onclick={handleClick}
+            onchange={handleChange}
+            onkeydown={handleKeyDown}
+        />
+        <span class="aksel-switch__track">
+            <span class="aksel-switch__thumb">
+                <template lwc:if={showLoader}>
+                    <span class={loaderClass} aria-live="polite"></span>
+                </template>
+                <template lwc:elseif={showSmallCheck}>
+                    <svg
+                        width="11"
+                        height="8"
+                        viewBox="0 0 11 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        focusable="false"
+                        role="img"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M9.62013 0.530226C10.1194 0.952686 10.1817 1.6999 9.7592 2.19917L5.4171 7.33075C5.20318 7.58356 4.89318 7.73525 4.5623 7.74901C4.23142 7.76277 3.90989 7.63735 3.67572 7.40318L1.3073 5.03476C0.844833 4.5723 0.844833 3.8225 1.3073 3.36003C1.76976 2.89757 2.51956 2.89757 2.98202 3.36003L4.4404 4.81841L7.95118 0.669304C8.37364 0.170033 9.12085 0.107765 9.62013 0.530226Z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </template>
+                <template lwc:elseif={showCheck}>
+                    <svg
+                        width="12"
+                        height="10"
+                        viewBox="0 0 12 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        focusable="false"
+                        role="img"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M11.2674 0.647802C11.8762 1.20971 11.9141 2.1587 11.3522 2.76743L5.35221 9.26743C5.07531 9.56739 4.68813 9.74155 4.27998 9.74971C3.87184 9.75787 3.478 9.59933 3.18934 9.31067L0.68934 6.81067C0.103553 6.22488 0.103553 5.27513 0.68934 4.68935C1.27513 4.10356 2.22487 4.10356 2.81066 4.68935L4.20673 6.08541L9.14779 0.732587C9.7097 0.123856 10.6587 0.0858967 11.2674 0.647802Z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </template>
+            </span>
+        </span>
+        <label for={computedInputId} class="aksel-switch__label-wrapper">
+            <span class={contentClass}>
+                <span class={labelClass}>
+                    <template lwc:if={isReadonly}>
+                        <svg
+                            class="aksel-form-field__readonly-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            focusable="false"
+                        >
+                            <title>{readOnlyTitle}</title>
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M12 2.25C9.37665 2.25 7.25 4.37665 7.25 7V9.25H7C6.0335 9.25 5.25 10.0335 5.25 11V20C5.25 20.4142 5.58579 20.75 6 20.75H18C18.4142 20.75 18.75 20.4142 18.75 20V11C18.75 10.0335 17.9665 9.25 17 9.25H16.75V7C16.75 4.37665 14.6234 2.25 12 2.25ZM15.25 9.25V7C15.25 5.20507 13.7949 3.75 12 3.75C10.2051 3.75 8.75 5.20507 8.75 7V9.25H15.25ZM12 13C11.1716 13 10.5 13.6716 10.5 14.5C10.5 15.0552 10.8016 15.54 11.25 15.7993V17C11.25 17.4142 11.5858 17.75 12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V15.7993C13.1984 15.54 13.5 15.0552 13.5 14.5C13.5 13.6716 12.8284 13 12 13Z"
+                                fill="currentColor"
+                            ></path>
+                        </svg>
+                    </template>
+                    <slot>{label}</slot>
+                </span>
+                <template lwc:if={description}>
+                    <span class={descriptionClass}>{description}</span>
+                </template>
+            </span>
+        </label>
+    </div>
+</template>
