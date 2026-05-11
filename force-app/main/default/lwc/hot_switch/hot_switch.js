@@ -165,7 +165,7 @@ export default class HotSwitch extends LightningElement {
     }
 
     get descriptionClass() {
-        return `aksel-form-field__subdescription aksel-switch__description aksel-body-short aksel-body-short--${this.normalizedSize}`;
+        return `aksel-form-field__subdescription aksel-switch__description aksel-body-short aksel-body-short-description--${this.normalizedSize}`;
     }
 
     get showLoader() {

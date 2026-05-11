@@ -280,10 +280,18 @@
 }
 
 .aksel-body-short--medium {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
 }
 
 .aksel-body-short--small {
+    font-size: 1.125rem;
+}
+
+.aksel-body-short-description--medium {
+    font-size: 1rem;
+}
+
+.aksel-body-short-description--small {
     font-size: 1rem;
 }
 
