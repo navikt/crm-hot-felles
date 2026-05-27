@@ -1,0 +1,40 @@
+<template>
+    <template lwc:if={isVisible}>
+        <section class={containerClass} role="alert" aria-live={ariaLive} aria-label={ariaLabelComputed}>
+            <div class={headerClass}>
+                <div class="local-alert__title-wrap">
+                    <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
+
+                    <template lwc:if={title}>
+                        <h2 class={titleClass}>{title}</h2>
+                    </template>
+                </div>
+
+                <template lwc:if={showCloseButton}>
+                    <button
+                        type="button"
+                        class="local-alert__close-button"
+                        aria-label="Close alert"
+                        onclick={handleClose}
+                    >
+                        <img src={closeIcon} alt="" class="local-alert__close-icon" aria-hidden="true" />
+                    </button>
+                </template>
+            </div>
+
+            <template lwc:if={hasBodyContent}>
+                <div class="local-alert__body">
+                    <template lwc:if={content}>
+                        <p class={contentClass}>{content}</p>
+                    </template>
+
+                    <template lwc:if={hasLink}>
+                        <div class="local-alert__link-row">
+                            <a href={url} class="local-alert__link">{urlText}</a>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </section>
+    </template>
+</template>
