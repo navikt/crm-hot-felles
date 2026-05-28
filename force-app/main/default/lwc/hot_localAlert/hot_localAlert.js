@@ -16,6 +16,7 @@ export default class LocalAlert extends LightningElement {
     @api url = '';
     @api showCloseButton = false;
     @api ariaLabel = '';
+    // Size can be 'small' or 'medium'
     @api size = 'medium';
 
     isVisible = true;
@@ -42,6 +43,10 @@ export default class LocalAlert extends LightningElement {
 
     get contentClass() {
         return `local-alert__content local-alert__content--${this.size}`;
+    }
+
+    get bodyClass() {
+        return `local-alert__body local-alert__body--${this.size}`;
     }
 
     get ariaLive() {

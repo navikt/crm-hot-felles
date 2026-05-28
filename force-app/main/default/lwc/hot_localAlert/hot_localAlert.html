@@ -23,15 +23,16 @@
             </div>
 
             <template lwc:if={hasBodyContent}>
-                <div class="local-alert__body">
+                <div class={bodyClass}>
                     <template lwc:if={content}>
                         <p class={contentClass}>{content}</p>
                     </template>
 
                     <template lwc:if={hasLink}>
-                        <div class="local-alert__link-row">
-                            <a href={url} class="local-alert__link">{urlText}</a>
-                        </div>
+                        <a href={url} target="_blank" rel="noopener noreferrer" class="local-alert__link">
+                            {urlText}
+                            <span class="sr-only">(åpnes i ny fane)</span>
+                        </a>
                     </template>
                 </div>
             </template>
