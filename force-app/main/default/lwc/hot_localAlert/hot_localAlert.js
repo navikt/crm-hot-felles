@@ -2,9 +2,9 @@ import { LightningElement, api } from 'lwc';
 import icons from '@salesforce/resourceUrl/aksel_ikoner';
 
 export default class LocalAlert extends LightningElement {
-    announcementIcon = icons + '/Media/MegaphoneSpeaking.svg';
-    successIcon = icons + '/Status/CheckmarkCircle.svg';
-    warningIcon = icons + '/Status/ExclamationmarkTriangle.svg';
+    announcementIcon = icons + '/Media/MegaphoneSpeakingFillWhite.svg';
+    successIcon = icons + '/Status/CheckmarkCircleFillWhite.svg';
+    warningIcon = icons + '/Status/ExclamationmarkTriangleFillWhite.svg';
     errorIcon = icons + '/Status/XMarkOctagonFillWhite.svg';
     closeIcon = icons + '/Status/XMark.svg';
 

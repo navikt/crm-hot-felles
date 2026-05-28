@@ -1,10 +1,12 @@
 .local-alert {
     display: block;
     overflow: hidden;
+    font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
     border: 2px solid;
     border-radius: 1rem;
     background-color: #ffffff;
-    font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .local-alert__header {
@@ -67,6 +69,7 @@
     text-decoration-thickness: 1px;
     transition: all 0.15s ease;
     cursor: pointer;
+    font-size: 1.125rem;
 }
 
 .local-alert__link:hover {
@@ -123,15 +126,15 @@
 }
 
 .local-alert--announcement {
-    border-color: #99c3ff;
+    border-color: #5d6573;
 }
 
 .local-alert--success {
-    border-color: #7bc47f;
+    border-color: #00893c;
 }
 
 .local-alert--warning {
-    border-color: #ffb82e;
+    border-color: #ca5000;
 }
 
 .local-alert--error {
@@ -139,18 +142,18 @@
 }
 
 .local-alert__header--announcement {
-    background-color: #f3f6fb;
-    color: #1f3b5c;
+    background-color: #5d6573;
+    color: #ffffff;
 }
 
 .local-alert__header--success {
-    background-color: #edf9f0;
-    color: #1f5a2c;
+    background-color: #00893c;
+    color: #ffffff;
 }
 
 .local-alert__header--warning {
-    background-color: #fff5e5;
-    color: #7a4b00;
+    background-color: #ca5000;
+    color: #ffffff;
 }
 
 .local-alert__header--error {
