@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <template lwc:if={hasBodyContent}>
+            <template lwc:if={shouldShowBody}>
                 <div class={bodyClass}>
                     <template lwc:if={content}>
                         <p class={contentClass}>{content}</p>

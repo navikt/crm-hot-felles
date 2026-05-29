@@ -7,15 +7,14 @@ export default class LocalAlert extends LightningElement {
     warningIcon = icons + '/Status/ExclamationmarkTriangleFillWhite.svg';
     errorIcon = icons + '/Status/XMarkOctagonFillWhite.svg';
 
-    // type can be 'announcement', 'success', 'warning', or 'error'
-    @api type = 'announcement';
+    @api type = 'announcement'; // type can be 'announcement', 'success', 'warning', or 'error'
     @api title = '';
     @api content = '';
+    @api contentView = 'show'; // contentView default is show, to hide content, set to 'title-only'
     @api urlText = '';
     @api url = '';
     @api ariaLabel = '';
-    // Size can be 'small' or 'medium'
-    @api size = 'medium';
+    @api size = 'medium'; // Size can be 'small' or 'medium'
 
     isVisible = true;
 
@@ -25,6 +24,10 @@ export default class LocalAlert extends LightningElement {
 
     get hasBodyContent() {
         return Boolean(this.content || this.hasLink);
+    }
+
+    get shouldShowBody() {
+        return this.contentView !== 'title-only' && this.hasBodyContent;
     }
 
     get containerClass() {
