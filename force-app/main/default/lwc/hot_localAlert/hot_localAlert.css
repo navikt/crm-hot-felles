@@ -90,25 +90,6 @@
     white-space: pre-line;
 }
 
-.local-alert__close-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    flex-shrink: 0;
-    font-family: inherit;
-}
-
-.local-alert__close-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
 .local-alert__title--medium {
     font-size: 1.25rem;
 }

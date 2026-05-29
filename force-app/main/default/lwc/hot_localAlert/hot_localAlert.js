@@ -6,7 +6,6 @@ export default class LocalAlert extends LightningElement {
     successIcon = icons + '/Status/CheckmarkCircleFillWhite.svg';
     warningIcon = icons + '/Status/ExclamationmarkTriangleFillWhite.svg';
     errorIcon = icons + '/Status/XMarkOctagonFillWhite.svg';
-    closeIcon = icons + '/Status/XMark.svg';
 
     // type can be 'announcement', 'success', 'warning', or 'error'
     @api type = 'announcement';
@@ -14,7 +13,6 @@ export default class LocalAlert extends LightningElement {
     @api content = '';
     @api urlText = '';
     @api url = '';
-    @api showCloseButton = false;
     @api ariaLabel = '';
     // Size can be 'small' or 'medium'
     @api size = 'medium';
@@ -68,18 +66,5 @@ export default class LocalAlert extends LightningElement {
             default:
                 return this.announcementIcon;
         }
-    }
-
-    handleClose() {
-        this.isVisible = false;
-
-        this.dispatchEvent(
-            new CustomEvent('close', {
-                detail: {
-                    type: this.type,
-                    title: this.title
-                }
-            })
-        );
     }
 }
