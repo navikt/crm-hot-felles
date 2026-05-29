@@ -1,12 +1,12 @@
 <template>
     <template lwc:if={isVisible}>
-        <section class={containerClass} role="alert" aria-live={ariaLive} aria-label={ariaLabelComputed}>
+        <section class={containerClass} aria-live={ariaLive} aria-label={screenReaderSectionLabel}>
             <div class={headerClass}>
                 <div class="local-alert__title-wrap">
                     <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
 
                     <template lwc:if={title}>
-                        <h2 class={titleClass}>{title}</h2>
+                        <h2 class={titleClass} aria-label={screenReaderTitleLabel}>{title}</h2>
                     </template>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                     </template>
 
                     <template lwc:if={hasLink}>
-                        <a href={url} target="_blank" rel="noopener noreferrer" class="local-alert__link">
+                        <a href={url} target="_blank" rel="noopener noreferrer" class={linkClass}>
                             {urlText}
                             <span class="sr-only">(åpnes i ny fane)</span>
                         </a>

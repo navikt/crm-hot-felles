@@ -54,8 +54,8 @@ export default class LocalAlert extends LightningElement {
         return this.type === 'error' || this.type === 'warning' ? 'assertive' : 'polite';
     }
 
-    get ariaLabelComputed() {
-        return this.ariaLabel || this.title;
+    get linkClass() {
+        return `local-alert__link local-alert__link--${this.size}`;
     }
 
     get iconUrl() {
@@ -68,6 +68,32 @@ export default class LocalAlert extends LightningElement {
                 return this.errorIcon;
             default:
                 return this.announcementIcon;
+        }
+    }
+
+    get screenReaderSectionLabel() {
+        switch (this.type) {
+            case 'success':
+                return 'Suksess';
+            case 'warning':
+                return 'Advarsel';
+            case 'error':
+                return 'Feil';
+            default:
+                return 'Kunngjøring';
+        }
+    }
+
+    get screenReaderTitleLabel() {
+        switch (this.type) {
+            case 'success':
+                return `Suksess: ${this.title}`;
+            case 'warning':
+                return `Advarsel: ${this.title}`;
+            case 'error':
+                return `Feil: ${this.title}`;
+            default:
+                return `Kunngjøring: ${this.title}`;
         }
     }
 }
