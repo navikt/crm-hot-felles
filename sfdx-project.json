@@ -1,7 +1,7 @@
 {
     "packageDirectories": [
         {
-            "versionNumber": "0.14.0.NEXT",
+            "versionNumber": "0.15.0.NEXT",
             "path": "force-app",
             "default": true,
             "package": "crm-hot-felles",
