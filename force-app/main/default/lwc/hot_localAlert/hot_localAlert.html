@@ -1,0 +1,30 @@
+<template>
+    <template lwc:if={isVisible}>
+        <section class={containerClass} aria-live={ariaLive} aria-label={screenReaderSectionLabel}>
+            <div class={headerClass}>
+                <div class="local-alert__title-wrap">
+                    <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
+
+                    <template lwc:if={title}>
+                        <h2 class={titleClass} aria-label={screenReaderTitleLabel}>{title}</h2>
+                    </template>
+                </div>
+            </div>
+
+            <template lwc:if={shouldShowBody}>
+                <div class={bodyClass}>
+                    <template lwc:if={content}>
+                        <p class={contentClass}>{content}</p>
+                    </template>
+
+                    <template lwc:if={hasLink}>
+                        <a href={url} target="_blank" rel="noopener noreferrer" class={linkClass}>
+                            {urlText}
+                            <span class="sr-only">(åpnes i ny fane)</span>
+                        </a>
+                    </template>
+                </div>
+            </template>
+        </section>
+    </template>
+</template>
