@@ -5,7 +5,7 @@
         data-variant={resolvedVariant}
         aria-label={ariaLabel}
     >
-        <template if:true={hasIcon}>
+        <template lwc:if={hasIcon}>
             <span class="tag__icon" aria-hidden="true">
                 <slot name="icon"></slot>
             </span>
