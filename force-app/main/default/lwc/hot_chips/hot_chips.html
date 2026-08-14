@@ -1,0 +1,52 @@
+<template>
+    <ul class={listClassName}>
+        <template for:each={renderedChips} for:item="chip">
+            <li key={chip.key}>
+                <button
+                    type="button"
+                    class={chip.className}
+                    data-index={chip.index}
+                    data-color={chip.color}
+                    data-pressed={chip.dataPressed}
+                    disabled={chip.disabled}
+                    aria-pressed={chip.ariaPressed}
+                    aria-label={chip.ariaLabel}
+                    onclick={handleChipClick}
+                >
+                    <template lwc:if={chip.showToggleCheckmark}>
+                        <svg
+                            aria-hidden="true"
+                            class="toggle-icon"
+                            width="1.25em"
+                            height="1.25em"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            focusable="false"
+                            role="presentation"
+                        >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d={chip.iconPath} fill="currentColor"></path>
+                        </svg>
+                    </template>
+                    <span class="chip-text">{chip.label}</span>
+                    <template lwc:if={chip.isRemovable}>
+                        <span class="removable-icon">
+                            <svg
+                                aria-hidden="true"
+                                width="1rem"
+                                height="1rem"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                focusable="false"
+                                role="presentation"
+                            >
+                                <path d={chip.removablePath} fill="currentColor"></path>
+                            </svg>
+                        </span>
+                    </template>
+                </button>
+            </li>
+        </template>
+    </ul>
+</template>
