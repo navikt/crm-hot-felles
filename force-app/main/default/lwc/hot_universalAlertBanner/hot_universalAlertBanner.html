@@ -1,0 +1,28 @@
+<template>
+    <template lwc:if={isVisible}>
+        <section class={bannerClass} role="alert" aria-live="assertive" style={bannerStyle}>
+            <span class="slds-assistive-text">{resolvedAssistiveText}</span>
+
+            <div class="banner__main slds-grid slds-grid_vertical-align-center">
+                <template lwc:if={shouldShowIcon}>
+                    <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
+                </template>
+
+                <div class="banner__content slds-text-align_center">
+                    <slot class={textSizeClass}>{message}</slot>
+                </div>
+            </div>
+
+            <template lwc:if={showCloseButton}>
+                <button
+                    class="banner__closeButton slds-is-absolute slds-grid slds-grid_vertical-align-center slds-grid_align-center slds-p-around_none"
+                    type="button"
+                    onclick={handleClose}
+                    aria-label="Close alert banner"
+                >
+                    <lightning-icon icon-name="utility:close" size="x-small" class="banner__closeIcon"></lightning-icon>
+                </button>
+            </template>
+        </section>
+    </template>
+</template>
