@@ -1,8 +1,10 @@
 @IsTest
-public class  {
+public class HOT_KrrInformationControllerTest {
     @TestSetup
     static void makeData() {
-        HOT_ST_TestDataFactory.createRecord(new Person__c(Name = '01048800153'));
+        Person__c person = new Person__c();
+        person.Name = '01048800153';
+        insert person;
     }
 
     @IsTest
