@@ -1,0 +1,35 @@
+<template>
+    <template lwc:if={isVisible}>
+        <section class={bannerClass} role="alert">
+            <div class="banner__main slds-grid slds-grid_vertical-align-center">
+                <template lwc:if={shouldShowIcon}>
+                    <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
+                </template>
+
+                <div class="banner__content slds-text-align_center">
+                    <slot class={textSizeClass}>{message}</slot>
+
+                    <template lwc:if={hasItems}>
+                        <span class="banner__list">
+                            <template for:each={items} for:item="item">
+                                <span key={item.key} class="banner__listItem">
+                                    <a href={item.url}>{item.label}</a>
+                                </span>
+                            </template>
+                        </span>
+                    </template>
+                </div>
+            </div>
+
+            <template lwc:if={showCloseButton}>
+                <button
+                    class="banner__closeButton slds-is-absolute slds-grid slds-grid_vertical-align-center slds-grid_align-center slds-p-around_none"
+                    type="button"
+                    onclick={handleClose}
+                >
+                    <lightning-icon icon-name="utility:close" size="x-small" class="banner__closeIcon"></lightning-icon>
+                </button>
+            </template>
+        </section>
+    </template>
+</template>

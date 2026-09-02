@@ -1,0 +1,122 @@
+.banner {
+    --hot-alert-error-bg: #ba0517;
+    --hot-alert-warning-bg: #fe9339;
+    --hot-alert-info-bg: #0067c5;
+    --hot-alert-texture-opacity: 0.12;
+    --banner-background: var(--hot-alert-info-bg);
+    --banner-text: #ffffff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--banner-background);
+    background-image: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, var(--hot-alert-texture-opacity)) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0, 0, 0, var(--hot-alert-texture-opacity)) 50%,
+        rgba(0, 0, 0, var(--hot-alert-texture-opacity)) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 64px 64px;
+    color: var(--banner-text);
+    font-weight: 400;
+}
+
+.banner__main {
+    gap: 0.75rem;
+}
+
+.banner--info {
+    --banner-background: var(--hot-alert-info-bg);
+    --banner-text: #ffffff;
+}
+
+.banner--warning {
+    --banner-background: var(--hot-alert-warning-bg);
+    --banner-text: #181818;
+}
+
+.banner--error {
+    --banner-background: var(--hot-alert-error-bg);
+    --banner-text: #ffffff;
+}
+
+.banner--error h2,
+.banner--error p,
+.banner--error span,
+.banner--info h2,
+.banner--info p,
+.banner--info span {
+    color: #ffffff;
+}
+
+.banner--warning h2,
+.banner--warning p,
+.banner--warning span {
+    color: #181818;
+}
+
+.banner a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.banner a:hover,
+.banner a:focus {
+    color: inherit;
+    text-decoration-thickness: 2px;
+}
+
+.banner__iconShape {
+    display: inline-flex;
+}
+
+.banner__icon {
+    --sds-c-icon-color-foreground-default: var(--banner-text);
+}
+
+.banner--warning .banner__icon {
+    --sds-c-icon-color-foreground-default: #181818;
+}
+
+.banner__content--small {
+    font-size: 0.875rem;
+}
+.banner__content--medium {
+    font-size: 1rem;
+}
+.banner__content--large {
+    font-size: 1.125rem;
+}
+
+.banner__list {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.banner__listItem:not(:last-child)::after {
+    content: ', ';
+}
+
+.banner__closeButton {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.banner__closeIcon {
+    --sds-c-icon-color-foreground-default: var(--banner-text);
+}
