@@ -39,6 +39,14 @@
                     "versionNumber": "0.55.0.LATEST"
                 },
                 {
+                    "package": "crm-platform-integration",
+                    "versionNumber": "0.173.0.LATEST"
+                },
+                {
+                    "package": "crm-shared-flowComponents",
+                    "versionNumber": "0.4.0.LATEST"
+                },
+                {
                     "package": "crm-platform-oppgave",
                     "versionNumber": "0.74.0.LATEST"
                 },
@@ -46,10 +54,7 @@
                     "package": "crm-platform-access-control",
                     "versionNumber": "0.178.0.LATEST"
                 },
-                {
-                    "package": "crm-shared-flowComponents",
-                    "versionNumber": "0.4.0.LATEST"
-                },
+
                 {
                     "package": "crm-henvendelse-base",
                     "versionNumber": "0.38.0.LATEST"
@@ -57,10 +62,6 @@
                 {
                     "package": "crm-shared-user-notification",
                     "versionNumber": "0.27.0.LATEST"
-                },
-                {
-                    "package": "crm-platform-integration",
-                    "versionNumber": "0.173.0.LATEST"
                 },
                 {
                     "package": "crm-henvendelse",
