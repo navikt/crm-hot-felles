@@ -6,44 +6,9 @@
     <description>Universal alert banner with info, warning and error variants.</description>
     <targets>
         <target>lightning__RecordPage</target>
-        <target>lightning__FlowScreen</target>
-        <target>lightning__AppPage</target>
-        <target>lightning__HomePage</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__FlowScreen">
-            <property
-                name="type"
-                type="String"
-                label="Banner Type"
-                datasource="Info,Warning,Error"
-                role="inputOnly"
-                required="true"
-                default="Info"
-            />
-            <property
-                name="message"
-                type="String"
-                label="Message"
-                role="inputOnly"
-                required="true"
-                default="Message"
-            />
-            <property
-                name="assistiveText"
-                type="String"
-                label="Assistive text override"
-                role="inputOnly"
-            />
-            <property
-                name="closeButton"
-                type="Boolean"
-                label="Show close button"
-                role="inputOnly"
-                default="true"
-            />
-        </targetConfig>
-        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage">
+        <targetConfig targets="lightning__RecordPage">
             <property
                 name="type"
                 type="String"
@@ -58,11 +23,6 @@
                 label="Message"
                 required="true"
                 default="Message"
-            />
-            <property
-                name="assistiveText"
-                type="String"
-                label="Assistive text override"
             />
             <property
                 name="closeButton"
