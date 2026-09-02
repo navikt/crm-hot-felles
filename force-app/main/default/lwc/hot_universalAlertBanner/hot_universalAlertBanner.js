@@ -72,6 +72,5 @@ export default class Hot_universalAlertBanner extends LightningElement {
 
     handleClose() {
         this.isClosed = true;
-        this.dispatchEvent(new CustomEvent('close'));
     }
 }
