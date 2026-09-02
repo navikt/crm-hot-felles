@@ -43,6 +43,10 @@
                     "versionNumber": "0.4.0.LATEST"
                 },
                 {
+                    "package": "crm-henvendelse-base",
+                    "versionNumber": "0.38.0.LATEST"
+                },
+                {
                     "package": "crm-henvendelse",
                     "versionNumber": "0.207.0.LATEST"
                 },
@@ -69,6 +73,7 @@
         "crm-thread-view": "0Ho7U000000000zSAA",
         "crm-platform-access-control": "0Ho2o0000008OR3CAM",
         "crm-shared-flowComponents": "0Ho2o000000fxYJCAY",
+        "crm-henvendelse-base": "0Ho7U000000000kSAA",
         "crm-henvendelse": "0Ho2o000000fxXfCAI",
         "crm-platform-integration": "0Ho2o0000008ORrCAM",
         "crm-community-base": "0Ho2o0000008OSzCAM",
