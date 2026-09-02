@@ -1,22 +1,25 @@
 @isTest
 public class HOT_DataSynchControllerTest {
+    @testSetup
+    static void setup() {
+        Person__c person = new Person__c();
+        person.INT_ActorId__c = '123456789';
+        person.Name = '01234567890';
+        insert person;
+    }
+
     @isTest
     static void testBankAccountSync() {
-        Person__c person = new Person__c();
-            person.INT_ActorId__c = '123456789';
-            person.Name = '01234567890';
-        insert person;
-
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 200, 'OK');
 
         Test.startTest();
         HOT_DataSynchController.doBankAccountNumberSync('01234567890');
         Test.stopTest();
 
-        person = [
+        Person__c person = [
             SELECT Id, INT_BankAccountNumber__c, INT_BankAccountNumberLastModified__c, INT_BankAccountSource__c
             FROM Person__c
-            WHERE Id = :person.Id
+            WHERE Name = '01234567890'
         ];
 
         System.assert(String.isNotBlank(person.INT_BankAccountNumber__c), 'Expected bank account number to be set');
@@ -30,10 +33,6 @@ public class HOT_DataSynchControllerTest {
 
     @isTest
     static void testBankAccountSyncHttpError() {
-        Person__c person = new Person__c();
-            person.INT_ActorId__c = '123456789';
-            person.Name = '01234567890';
-        insert person;
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 400, 'Bad Request');
 
         Test.startTest();
