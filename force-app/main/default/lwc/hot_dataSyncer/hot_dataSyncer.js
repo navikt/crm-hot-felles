@@ -1,5 +1,5 @@
 import { LightningElement, api } from 'lwc';
-import syncBankAccountNumber from '@salesforce/apex/NKS_DataSynchController.doBankAccountNumberSync';
+import syncBankAccountNumber from '@salesforce/apex/HOT_DataSynchController.doBankAccountNumberSync';
 import updateKrrInfo from '@salesforce/apex/HOT_KrrInformationController.updateKrrInformation';
 
 export default class Hot_dataSyncer extends LightningElement {
