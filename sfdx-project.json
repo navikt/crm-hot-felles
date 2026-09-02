@@ -51,6 +51,10 @@
                     "versionNumber": "0.38.0.LATEST"
                 },
                 {
+                    "package": "crm-shared-user-notification",
+                    "versionNumber": "0.27.0.LATEST"
+                },
+                {
                     "package": "crm-henvendelse",
                     "versionNumber": "0.207.0.LATEST"
                 },
@@ -58,10 +62,7 @@
                     "package": "crm-platform-integration",
                     "versionNumber": "0.173.0.LATEST"
                 },
-                {
-                    "package": "crm-shared-user-notification",
-                    "versionNumber": "0.27.0.LATEST"
-                },
+
                 {
                     "package": "crm-community-base",
                     "versionNumber": "0.133.0.LATEST"
