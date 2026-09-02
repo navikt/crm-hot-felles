@@ -4,7 +4,6 @@ import icons from '@salesforce/resourceUrl/aksel_ikoner';
 export default class Hot_universalAlertBanner extends LightningElement {
     @api type = 'Info';
     @api message = '';
-    @api assistiveText;
     @api closeButton = false;
     @api showIcon = false;
     @api textSize = 'small';
@@ -58,10 +57,6 @@ export default class Hot_universalAlertBanner extends LightningElement {
 
     get bannerClass() {
         return `banner banner--${this.normalizedType}`;
-    }
-
-    get resolvedAssistiveText() {
-        return this.assistiveText || this.type || 'Info';
     }
 
     get iconUrl() {

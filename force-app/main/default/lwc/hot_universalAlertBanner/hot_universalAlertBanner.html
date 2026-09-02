@@ -1,8 +1,6 @@
 <template>
     <template lwc:if={isVisible}>
-        <section class={bannerClass} role="alert" aria-live="assertive">
-            <span class="slds-assistive-text">{resolvedAssistiveText}</span>
-
+        <section class={bannerClass} role="alert">
             <div class="banner__main slds-grid slds-grid_vertical-align-center">
                 <template lwc:if={shouldShowIcon}>
                     <img src={iconUrl} alt="" class="local-alert__icon" aria-hidden="true" />
