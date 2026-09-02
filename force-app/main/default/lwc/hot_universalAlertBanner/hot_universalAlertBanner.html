@@ -8,6 +8,16 @@
 
                 <div class="banner__content slds-text-align_center">
                     <slot class={textSizeClass}>{message}</slot>
+
+                    <template lwc:if={hasItems}>
+                        <span class="banner__list">
+                            <template for:each={items} for:item="item">
+                                <span key={item.key} class="banner__listItem">
+                                    <a href={item.url}>{item.label}</a>
+                                </span>
+                            </template>
+                        </span>
+                    </template>
                 </div>
             </div>
 
