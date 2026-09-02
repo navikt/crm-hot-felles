@@ -2,9 +2,10 @@
 public class HOT_DataSynchControllerTest {
     @isTest
     static void testBankAccountSync() {
-        Person__c person = (Person__c) UTIL_TestDataFactory.createRecord(
-            new Person__c(INT_ActorId__c = '123456789', Name = '01234567890')
-        );
+        Person__c person = new Person__c();
+            person.INT_ActorId__c = '123456789';
+            person.Name = '01234567890';
+        insert person;
 
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 200, 'OK');
 
@@ -29,9 +30,10 @@ public class HOT_DataSynchControllerTest {
 
     @isTest
     static void testBankAccountSyncHttpError() {
-        Person__c person = (Person__c) UTIL_TestDataFactory.createRecord(
-            new Person__c(INT_ActorId__c = '123456789', Name = '01234567890')
-        );
+        Person__c person = new Person__c();
+            person.INT_ActorId__c = '123456789';
+            person.Name = '01234567890';
+        insert person;
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 400, 'Bad Request');
 
         Test.startTest();
