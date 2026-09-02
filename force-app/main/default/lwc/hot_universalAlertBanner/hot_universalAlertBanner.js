@@ -7,7 +7,6 @@ export default class Hot_universalAlertBanner extends LightningElement {
     @api assistiveText;
     @api closeButton = false;
     @api showIcon = false;
-    @api backgroundColor;
     @api textSize = 'small';
 
     announcementIcon = icons + '/Media/MegaphoneSpeakingFillWhite.svg';
@@ -63,14 +62,6 @@ export default class Hot_universalAlertBanner extends LightningElement {
 
     get resolvedAssistiveText() {
         return this.assistiveText || this.type || 'Info';
-    }
-
-    get bannerStyle() {
-        if (!this.backgroundColor) {
-            return undefined;
-        }
-
-        return `--banner-background: ${this.backgroundColor};`;
     }
 
     get iconUrl() {
