@@ -111,10 +111,3 @@
 .banner__closeIcon {
     --sds-c-icon-color-foreground-default: var(--banner-text);
 }
-
-@media (forced-colors: active) {
-    .banner {
-        background-image: none;
-        border: 1px solid CanvasText;
-    }
-}
