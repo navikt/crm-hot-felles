@@ -25,6 +25,7 @@
     background-size: 64px 64px;
     color: var(--banner-text);
     font-weight: 400;
+    margin: 0.25rem;
 }
 
 .banner__main {
