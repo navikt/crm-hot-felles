@@ -5,7 +5,7 @@ import { setDefaultValue } from "c/componentHelperClass";
 // opplesingen på hvert tastetrykk.
 const COUNTER_ANNOUNCE_DELAY = 1000;
 
-export default class Textarea extends LightningElement {
+export default class HOT_Textarea extends LightningElement {
   @api name = "textarea";
   @api label = "";
   @api value;
