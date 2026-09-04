@@ -2,11 +2,14 @@ import { LightningElement, api } from 'lwc';
 import icons from '@salesforce/resourceUrl/aksel_ikoner';
 
 export default class Hot_universalAlertBanner extends LightningElement {
+    // Types of alert banners: 'Info', 'Warning', 'Error', 'Success'
     @api type = 'Info';
     @api message = '';
     @api closeButton = false;
     @api showIcon = false;
     @api textSize = 'small';
+    // Array of items to display in the alert banner
+    @api items = [];
 
     announcementIcon = icons + '/Media/MegaphoneSpeakingFillWhite.svg';
     successIcon = icons + '/Status/CheckmarkCircleFillWhite.svg';
@@ -35,6 +38,9 @@ export default class Hot_universalAlertBanner extends LightningElement {
         return `banner__content--${this.textSize}`;
     }
 
+    get hasItems() {
+        return Array.isArray(this.items) && this.items.length > 0;
+    }
 
     get resolvedIconName() {
         if (this.iconName) {

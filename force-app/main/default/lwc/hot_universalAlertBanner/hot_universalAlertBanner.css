@@ -95,6 +95,15 @@
     font-size: 1.125rem;
 }
 
+.banner__list {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.banner__listItem:not(:last-child)::after {
+    content: ', ';
+}
+
 .banner__closeButton {
     display: inline-flex;
     width: 1.5rem;
