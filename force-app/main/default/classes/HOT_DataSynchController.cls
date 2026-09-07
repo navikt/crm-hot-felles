@@ -1,6 +1,8 @@
 public without sharing class HOT_DataSynchController {
     private static KRP_CalloutService krpService = new KRP_CalloutService();
     private static CRM_ApplicationDomain.Domain domain = CRM_ApplicationDomain.Domain.HOT;
+    @TestVisible
+    private static String testResolvedIdent;
 
     /**
      * @description Synchronize a persons bank information from KRP
@@ -10,6 +12,9 @@ public without sharing class HOT_DataSynchController {
     public static Boolean doBankAccountNumberSync() {
         User currentUser = [SELECT Id, Account.CRM_Person__r.Name FROM User WHERE Id = :UserInfo.getUserId()];
         String resolvedIdent = currentUser.Account?.CRM_Person__r?.Name;
+        if (Test.isRunningTest() && String.isNotBlank(testResolvedIdent)) {
+            resolvedIdent = testResolvedIdent;
+        }
         Boolean isSynced = true;
         Set<Integer> successCodes = new Set<Integer>{ 200, 201, 202, 203, 204 };
         LoggerUtility logger = new LoggerUtility('KRP Bank Sync');
