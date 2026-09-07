@@ -15,6 +15,7 @@ export default class Hot_button extends LightningElement {
     @api desktopStyle;
     @api mobileStyle;
     @api isLoading; // "true" | "false"
+    @api size; // medium, small, xsmall
 
     get buttonClass() {
         let buttonStyle = this.buttonStyling ? this.buttonStyling.toLowerCase() : 'primary';
@@ -25,16 +26,30 @@ export default class Hot_button extends LightningElement {
             buttonStyle !== 'tertiary' &&
             buttonStyle !== 'danger'
         ) {
-            buttonStyle = 'primary'; // Set primary as default if invalid argument
+            buttonStyle = 'primary'; // Set primary as default
         }
 
-        let classes = 'navds-button navds-button--' + buttonStyle + ' navds-body-short';
+        let buttonSize = this.size ? this.size.toLowerCase() : 'medium';
+
+        if (buttonSize !== 'medium' && buttonSize !== 'small' && buttonSize !== 'xsmall') {
+            buttonSize = 'medium'; // Set medium as default if invalid argument
+        }
+
+        let classes =
+            'navds-button navds-button--' + buttonStyle + ' navds-button--' + buttonSize + ' navds-body-short';
 
         if (this.isLoadingActive) {
             classes += ' navds-button--loading';
         }
 
         return classes;
+    }
+
+    get loaderClass() {
+        const buttonStyle = this.buttonStyling ? this.buttonStyling.toLowerCase() : 'primary';
+        const isDarkButton = buttonStyle === 'primary' || buttonStyle === 'danger';
+        const variantClass = isDarkButton ? 'navds-loader--inverted' : 'navds-loader--interaction';
+        return 'navds-loader navds-loader--small ' + variantClass + ' navds-loader--transparent';
     }
 
     handleClick(event) {

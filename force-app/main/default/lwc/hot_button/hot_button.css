@@ -12,9 +12,7 @@ main {
     border-color: #0067c5;
     border: none;
     border-radius: 8px;
-    min-height: 48px;
     align-items: center;
-    padding: calc(0.75rem - 2px) 0.75rem;
 }
 .navds-button--secondary {
     border: 2px solid #0067c5;
@@ -233,12 +231,12 @@ button {
     animation: loader-dasharray 1.8s ease-in-out infinite;
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0;
-    stroke: var(--ac-loader-stroke, var(--a-border-default));
+    stroke: var(--ac-loader-stroke, var(--a-border-default, #1f5ea9));
     stroke-width: var(--ac-loader-background-stroke-width);
 }
 
 .navds-loader__background {
-    stroke: var(--ac-loader-stroke-bg, var(--a-surface-active));
+    stroke: var(--ac-loader-stroke-bg, var(--a-surface-active, #b7c3d0));
     stroke-width: var(--ac-loader-background-stroke-width);
 }
 
@@ -295,15 +293,30 @@ button {
 }
 
 .navds-loader--inverted .navds-loader__foreground {
-    stroke: var(--ac-loader-inverted-stroke, var(--a-border-on-inverted));
+    stroke: var(--ac-loader-inverted-stroke, var(--a-border-on-inverted, #ffffff));
 }
 
 .navds-loader--inverted .navds-loader__background {
-    stroke: var(--ac-loader-inverted-stroke-bg, var(--a-border-on-inverted-subtle));
+    stroke: var(--ac-loader-inverted-stroke-bg, var(--a-border-on-inverted-subtle, rgba(255, 255, 255, 0.35)));
 }
 
 .navds-loader--transparent .navds-loader__background {
-    stroke: var(--a-surface-transparent);
+    stroke: var(--a-surface-transparent, transparent);
+}
+
+.navds-button--medium {
+    min-height: 48px;
+    padding: calc(0.75rem - 2px) 0.75rem;
+}
+
+.navds-button--small {
+    min-height: 40px;
+    padding: calc(0.5rem - 2px) 0.75rem;
+}
+
+.navds-button--xsmall {
+    min-height: 32px;
+    padding: calc(0.375rem - 2px) 0.5rem;
 }
 
 @keyframes loader-rotate {
