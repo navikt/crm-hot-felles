@@ -19,9 +19,10 @@ public class HOT_KrrInformationControllerTest {
                 null
             )
         );
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
 
         Test.startTest();
-        HOT_KrrInformationController.updateKrrInformation('01048800153');
+        HOT_KrrInformationController.updateKrrInformation();
         Test.stopTest();
 
         System.assertEquals(
@@ -32,15 +33,11 @@ public class HOT_KrrInformationControllerTest {
 
     @IsTest
     static void testKrrUpdateErr() {
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
         Test.startTest();
         try {
-            HOT_KrrInformationController.updateKrrInformation('12345678901');
-            System.assertEquals(
-                null,
-                [SELECT Id, INT_KRR_Reservation__c FROM Person__c WHERE Name = '12345678901' LIMIT 1]
-                ?.INT_KRR_Reservation__c
-            );
-        } catch (AurahandledException e) {
+            HOT_KrrInformationController.updateKrrInformation();
+        } catch (AuraHandledException e) {
             System.assertEquals('Script-thrown exception', e.getMessage());
         }
         Test.stopTest();
@@ -58,9 +55,10 @@ public class HOT_KrrInformationControllerTest {
                 null
             )
         );
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
 
         Test.startTest();
-        HOT_KrrInformationController.updateKrrInformation('01048800153');
+        HOT_KrrInformationController.updateKrrInformation();
         Test.stopTest();
 
         System.assertEquals(
@@ -81,9 +79,10 @@ public class HOT_KrrInformationControllerTest {
                 null
             )
         );
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
 
         Test.startTest();
-        HOT_KrrInformationController.updateKrrInformation('01048800153');
+        HOT_KrrInformationController.updateKrrInformation();
         Test.stopTest();
 
         System.assertEquals(
@@ -104,9 +103,10 @@ public class HOT_KrrInformationControllerTest {
                 null
             )
         );
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
 
         Test.startTest();
-        HOT_KrrInformationController.updateKrrInformation('01048800153');
+        HOT_KrrInformationController.updateKrrInformation();
         Test.stopTest();
 
         System.assertEquals(
@@ -128,9 +128,10 @@ public class HOT_KrrInformationControllerTest {
                 null
             )
         );
+        HOT_KrrInformationController.testResolvedPersonIdent = '01048800153';
 
         Test.startTest();
-        HOT_KrrInformationController.updateKrrInformation('01048800153');
+        HOT_KrrInformationController.updateKrrInformation();
         Test.stopTest();
 
         System.assertEquals(

@@ -11,9 +11,10 @@ public class HOT_DataSynchControllerTest {
     @isTest
     static void testBankAccountSync() {
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 200, 'OK');
+        HOT_DataSynchController.testResolvedIdent = '01234567890';
 
         Test.startTest();
-        HOT_DataSynchController.doBankAccountNumberSync('01234567890');
+        HOT_DataSynchController.doBankAccountNumberSync();
         Test.stopTest();
 
         Person__c person = [
@@ -34,9 +35,10 @@ public class HOT_DataSynchControllerTest {
     @isTest
     static void testBankAccountSyncHttpError() {
         ApiMock.setTestMock('POST_HENT_AKTIV_KONTO', 400, 'Bad Request');
+        HOT_DataSynchController.testResolvedIdent = '01234567890';
 
         Test.startTest();
-        HOT_DataSynchController.doBankAccountNumberSync('01234567890');
+        HOT_DataSynchController.doBankAccountNumberSync();
         Test.stopTest();
 
         List<Application_Log__c> logs = [
