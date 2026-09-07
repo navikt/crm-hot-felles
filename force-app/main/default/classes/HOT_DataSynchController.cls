@@ -4,22 +4,28 @@ public without sharing class HOT_DataSynchController {
 
     /**
      * @description Synchronize a persons bank information from KRP
-     * @param ident
      * @return  `Boolean`
      */
     @AuraEnabled
-    public static Boolean doBankAccountNumberSync(String ident) {
+    public static Boolean doBankAccountNumberSync() {
+        User currentUser = [SELECT Id, Account.CRM_Person__r.Name FROM User WHERE Id = :UserInfo.getUserId()];
+        String resolvedIdent = currentUser.Account?.CRM_Person__r?.Name;
         Boolean isSynced = true;
         Set<Integer> successCodes = new Set<Integer>{ 200, 201, 202, 203, 204 };
         LoggerUtility logger = new LoggerUtility('KRP Bank Sync');
 
         try {
-            HttpResponse resp = krpService.getBankAccount(ident);
+            if (String.isBlank(resolvedIdent)) {
+                isSynced = false;
+                return false;
+            }
+
+            HttpResponse resp = krpService.getBankAccount(resolvedIdent);
             Integer statusCode = resp.getStatusCode();
             if (successCodes.contains(statusCode)) {
                 if (String.isNotBlank(resp.getBody())) {
                     KRP_Konto accountInfo = (KRP_Konto) JSON.deserialize(resp.getBody(), KRP_Konto.class);
-                    updatePersonBankAccount(ident, accountInfo);
+                    updatePersonBankAccount(resolvedIdent, accountInfo);
                 }
             } else {
                 isSynced = false;
