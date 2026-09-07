@@ -1,27 +1,43 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement } from 'lwc';
 import syncBankAccountNumber from '@salesforce/apex/HOT_DataSynchController.doBankAccountNumberSync';
 import updateKrrInfo from '@salesforce/apex/HOT_KrrInformationController.updateKrrInformation';
 
 export default class Hot_dataSyncer extends LightningElement {
-    @api ident;
+    hasStarted = false;
 
-    @api
+    connectedCallback() {
+        if (this.hasStarted) {
+            return;
+        }
+
+        this.hasStarted = true;
+        void this.startSync();
+    }
+
     async startSync() {
         try {
-            await this.syncBankAccountNumber(this.ident);
-            await this.updateKrrInfo(this.ident);
-        } catch (error) {}
+            await this.syncBankAccountNumber();
+            await this.updateKrrInfo();
+        } catch (error) {
+            console.error('[hot_dataSyncer][ERR] Data sync failed:', JSON.stringify(error, null, 2));
+        }
     }
 
-    async syncBankAccountNumber(ident) {
+    async syncBankAccountNumber() {
         try {
-            await syncBankAccountNumber({ ident: ident });
-        } catch (error) {}
+            await syncBankAccountNumber();
+        } catch (error) {
+            console.error('[hot_dataSyncer][ERR] Bank account number sync failed:', JSON.stringify(error, null, 2));
+            throw error;
+        }
     }
 
-    async updateKrrInfo(ident) {
+    async updateKrrInfo() {
         try {
-            await updateKrrInfo({ ident: ident });
-        } catch (error) {}
+            await updateKrrInfo();
+        } catch (error) {
+            console.error('[hot_dataSyncer][ERR] KRR information update failed:', JSON.stringify(error, null, 2));
+            throw error;
+        }
     }
 }
