@@ -23,6 +23,11 @@ export default class InfoCard extends LightningElement {
         return `infoCard__header ${this.isEitherContentOrUrl ? 'infoCard__header--with-border' : ''}`;
     }
 
+    // Determines whether title should be normal or bold based on content presence
+    get titleClass() {
+        return this.hasContent ? 'infoCard__title' : 'infoCard__title infoCard__title--normal';
+    }
+
     get shouldShowIcon() {
         return this.showIcon === true || this.showIcon === 'true';
     }
@@ -42,6 +47,14 @@ export default class InfoCard extends LightningElement {
         }
     }
     get isEitherContentOrUrl() {
-        return this.content || this.url;
+        return this.hasContent || this.hasUrl;
+    }
+
+    get hasContent() {
+        return typeof this.content === 'string' ? this.content.trim().length > 0 : Boolean(this.content);
+    }
+
+    get hasUrl() {
+        return typeof this.url === 'string' ? this.url.trim().length > 0 : Boolean(this.url);
     }
 }

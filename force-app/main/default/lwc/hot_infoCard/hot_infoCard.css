@@ -25,12 +25,17 @@
     line-height: inherit;
     font-family: inherit;
 }
+
+.infoCard__title--normal {
+    font-weight: 400;
+}
 .infoCard__header-inner {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 .infoCard__icon {
+    display: block;
     width: 20px;
     height: 20px;
     flex-shrink: 0;

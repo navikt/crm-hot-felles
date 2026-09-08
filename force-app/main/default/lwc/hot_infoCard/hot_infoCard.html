@@ -6,14 +6,14 @@
                     <img src={icon} alt="" aria-hidden="true" class="infoCard__icon" />
                 </div>
 
-                <h3 id="infoCardTitle" class="infoCard__title">
+                <h3 id="infoCardTitle" class={titleClass}>
                     <template lwc:if={title}>{title}</template>
                 </h3>
             </div>
         </div>
 
         <div lwc:if={isEitherContentOrUrl} class="infoCard__content">
-            <template lwc:if={content}>
+            <template lwc:if={hasContent}>
                 <p>{content}</p>
             </template>
 
