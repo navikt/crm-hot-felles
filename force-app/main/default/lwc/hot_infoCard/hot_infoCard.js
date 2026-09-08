@@ -3,7 +3,7 @@ import icons from '@salesforce/resourceUrl/aksel_ikoner';
 
 export default class InfoCard extends LightningElement {
     informationIcon = icons + '/Status/InformationSquare.svg';
-    warningIcon = icons + '/Status/ExclamationMarkTriangle.svg';
+    warningIcon = icons + '/Status/ExclamationmarkTriangle.svg';
     neutralIcon = icons + '/Statistics_and_math/BulletList.svg';
     dangerIcon = icons + '/Files_and_application/ClockDashed.svg';
 
