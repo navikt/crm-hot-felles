@@ -1,0 +1,111 @@
+import { LightningElement, api } from 'lwc';
+import { setDefaultValue, convertStringToBoolean } from 'c/componentHelperClass';
+
+export default class Hot_button extends LightningElement {
+    @api id;
+    @api name;
+    @api autofocus;
+    @api disabled;
+    @api type; // Button, Submit, Reset
+    @api value;
+    @api title;
+    @api buttonStyling; // Primary, Secondary, Tertiary, Danger
+    @api buttonLabel;
+    @api ariaLabel;
+    @api desktopStyle;
+    @api mobileStyle;
+    @api isLoading; // "true" | "false"
+    @api size; // medium, small, xsmall
+
+    get buttonClass() {
+        let buttonStyle = this.buttonStyling ? this.buttonStyling.toLowerCase() : 'primary';
+
+        if (
+            buttonStyle !== 'primary' &&
+            buttonStyle !== 'secondary' &&
+            buttonStyle !== 'tertiary' &&
+            buttonStyle !== 'danger'
+        ) {
+            buttonStyle = 'primary'; // Set primary as default
+        }
+
+        let buttonSize = this.size ? this.size.toLowerCase() : 'medium';
+
+        if (buttonSize !== 'medium' && buttonSize !== 'small' && buttonSize !== 'xsmall') {
+            buttonSize = 'medium'; // Set medium as default if invalid argument
+        }
+
+        let classes =
+            'navds-button navds-button--' + buttonStyle + ' navds-button--' + buttonSize + ' navds-body-short';
+
+        if (this.isLoadingActive) {
+            classes += ' navds-button--loading';
+        }
+
+        return classes;
+    }
+
+    get loaderClass() {
+        const buttonStyle = this.buttonStyling ? this.buttonStyling.toLowerCase() : 'primary';
+        const isDarkButton = buttonStyle === 'primary' || buttonStyle === 'danger';
+        const variantClass = isDarkButton ? 'navds-loader--inverted' : 'navds-loader--interaction';
+        return 'navds-loader navds-loader--small ' + variantClass + ' navds-loader--transparent';
+    }
+
+    handleClick(event) {
+        const eventToSend = new CustomEvent('buttonclick', {
+            detail: event.target.value,
+            bubbles: true,
+            composed: true
+        });
+        this.dispatchEvent(eventToSend);
+    }
+
+    @api focusButton() {
+        const btn = this.template.querySelector('button');
+        if (btn && !this.isLoadingActive) {
+            btn.focus();
+        }
+    }
+
+    get ariaLabelValue() {
+        return this.ariaLabel === undefined ? this.buttonLabel : this.ariaLabel;
+    }
+
+    get setDefaultId() {
+        return setDefaultValue(this.id, 'button');
+    }
+
+    get setDefaultName() {
+        return setDefaultValue(this.name, 'button');
+    }
+
+    get setDefaultAutofocus() {
+        return convertStringToBoolean(this.autofocus);
+    }
+
+    get setDefaultDisabled() {
+        const baseDisabled = convertStringToBoolean(this.disabled);
+        return baseDisabled || this.isLoadingActive;
+    }
+
+    get setDefaultValue() {
+        return setDefaultValue(this.value, 'defaultValue');
+    }
+
+    get setDefaultType() {
+        return setDefaultValue(this.type, 'button');
+    }
+
+    get setDefaultStyle() {
+        let style = this.desktopStyle;
+        if (window.screen.width < 576) {
+            style = this.mobileStyle;
+        }
+        return setDefaultValue(style, '');
+    }
+
+    get isLoadingActive() {
+        return convertStringToBoolean(this.isLoading);
+    }
+}
