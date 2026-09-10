@@ -1,23 +1,34 @@
 public without sharing class HOT_KrrInformationController {
     static LoggerUtility logger = new LoggerUtility();
+    @TestVisible
+    private static String testResolvedPersonIdent;
 
     @AuraEnabled
-    public static void updateKrrInformation(String personIdent) {
+    public static void updateKrrInformation() {
+        User currentUser = [SELECT Id, Account.CRM_Person__r.Name FROM User WHERE Id = :UserInfo.getUserId()];
+        String resolvedPersonIdent = currentUser.Account?.CRM_Person__r?.Name;
+        if (Test.isRunningTest() && String.isNotBlank(testResolvedPersonIdent)) {
+            resolvedPersonIdent = testResolvedPersonIdent;
+        }
         List<Person__c> personsToUpdate = new List<Person__c>();
         CRM_DatabaseOperations cdo = new CRM_DatabaseOperations();
         cdo.setDomain(CRM_ApplicationDomain.Domain.HOT);
+
+        if (String.isBlank(resolvedPersonIdent)) {
+            return;
+        }
     
         try {
             KrrCalloutService service = new KrrCalloutService();
             KrrCalloutService.KrrResponse response = service.getPersons(
-                new List<String>{ personIdent },
+                new List<String>{ resolvedPersonIdent },
                 true
             );
     
-            if (response != null && response.personer != null && response.personer.containsKey(personIdent)) {
-                KrrCalloutService.Person personData = response.personer.get(personIdent);
+            if (response != null && response.personer != null && response.personer.containsKey(resolvedPersonIdent)) {
+                KrrCalloutService.Person personData = response.personer.get(resolvedPersonIdent);
     
-                for (Person__c person : [SELECT Id FROM Person__c WHERE Name = :personIdent]) {
+                for (Person__c person : [SELECT Id FROM Person__c WHERE Name = :resolvedPersonIdent]) {
                     personsToUpdate.add(
                         new Person__c(
                             Id = person.Id,
