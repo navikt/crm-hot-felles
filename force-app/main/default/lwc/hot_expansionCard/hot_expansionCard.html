@@ -1,0 +1,28 @@
+<template>
+    <section class={cardClass} aria-label={sectionAriaLabel} data-color={color}>
+        <div class="expansion-card__header" data-open={isOpen}>
+            <span class="expansion-card__header-content">
+                <span class="expansion-card__title"><slot name="title">{title}</slot></span>
+                <span class="expansion-card__description">
+                    <slot name="description">{description}</slot>
+                </span>
+            </span>
+            <button
+                class="expansion-card__header-button"
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={contentId}
+                aria-label="Vis mer"
+                onclick={handleToggle}
+            >
+                <span class="expansion-card__chevron" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <div id={contentId} class="expansion-card__content" aria-hidden={contentHidden} data-open={isOpen}>
+            <div class="expansion-card__content-inner">
+                <slot></slot>
+            </div>
+        </div>
+    </section>
+</template>
